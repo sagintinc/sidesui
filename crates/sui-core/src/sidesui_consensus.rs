@@ -14,7 +14,7 @@ use std::time::Duration;
 
 use async_trait::async_trait;
 use consensus_types::block::BlockRef;
-use tokio::sync::{mpsc, oneshot};
+use tokio::sync::mpsc;
 use tokio::task::JoinHandle;
 use tracing::{debug, info, warn};
 
@@ -215,7 +215,7 @@ impl SideSuiConsensus {
             .map(|(i, _)| ConsensusPosition {
                 epoch: EpochId::MIN,
                 block: BlockRef::MIN,
-                index: i as u64,
+                index: i as u16,
             })
             .collect();
         
