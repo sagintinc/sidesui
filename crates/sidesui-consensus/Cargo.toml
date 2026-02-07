@@ -1,0 +1,29 @@
+[package]
+name = "sidesui-consensus"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["Sage Intel Inc"]
+description = "Lightweight BFT consensus for Side-SUI private consortium networks"
+publish = false
+
+[dependencies]
+async-trait = "0.1"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+
+# SUI dependencies (minimal set needed)
+sui-types = { path = "../sui-types" }
+
+# TODO: Add these in Phase 2
+# tonic = "0.9"  # For gRPC networking
+# prost = "0.11" # For protobuf
+# rocksdb = "0.21" # For persistence
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[features]
+default = []
+full-networking = []  # Enable when network layer is complete
+persistence = []      # Enable when WAL is complete
